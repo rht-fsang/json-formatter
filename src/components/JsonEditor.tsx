@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { EditorView, keymap } from '@codemirror/view';
+import { EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
 import { basicSetup } from 'codemirror';
 import { json } from '@codemirror/lang-json';
@@ -14,7 +14,7 @@ interface Props {
 
 export function JsonEditor({ value, onChange, readOnly = false, placeholder }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const viewRef = useRef<EditorView>();
+  const viewRef = useRef<EditorView>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
